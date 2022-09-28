@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<div class="blog">
+
+  {{ content }}
+
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+      <li>
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+        {% if site.preview_posts %}
+        <p>
+          {{ post.content | strip_html | truncatewords:25 }}
+        </p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if paginator.total_pages != 1 %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="previous">
+          <div><i class="fa fa-caret-left"></i></div>
+        </a>
+      {% else %}
+        <span class="previous disabled">
+          <div><i class="fa fa-caret-left"></i></div>
+        </span>
+      {% endif %}
+      <span class="page-number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="next">
+          <div><i class="fa fa-caret-right"></i></div>
+        </a>
+      {% else %}
+        <span class="next disabled">
+          <div><i class="fa fa-caret-right"></i></div>
+        </span>
+      {% endif %}
+    </div>
+  {% endif %}
+
+
+</div>

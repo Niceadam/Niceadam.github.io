@@ -1,0 +1,93 @@
+<ul class="contact-icons">
+
+  {% if site.website %}
+  <li>
+    <a href="{{ site.website }}" target="_blank"><i class="icon fa fa-globe"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.github_username %}
+  <li>
+    <a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="icon fa fa-github"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.bitbucket_username %}
+  <li>
+    <a href="https://bitbucket.org/{{ site.bitbucket_username }}" target="_blank"><i class="icon fa fa-bitbucket"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.stackoverflow_username %}
+  <li>
+    <a href="https://stackoverflow.com/story/{{ site.stackoverflow_username }}" target="_blank"><i class="icon fa fa-stack-overflow"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.codepen_username %}
+  <li>
+    <a href="https://codepen.io/{{ site.codepen_username }}" target="_blank"><i class="icon fa fa-codepen"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.linkedin_username %}
+  <li>
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank"><i class="icon fa fa-linkedin"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.twitter_username %}
+  <li>
+    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="icon fa fa-twitter"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.facebook_username %}
+  <li>
+    <a href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank"><i class="icon fa fa-facebook"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.instagram_username %}
+  <li>
+    <a href="https://www.instagram.com/{{ site.instagram_username }}" target="_blank"><i class="icon fa fa-instagram"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.email %}
+  <li>
+    <a href="mailto:{{ site.email }}" target="_blank"><i class="icon fa fa-envelope"></i></a>
+  </li>
+  {% endif %}
+
+  {% if site.keybase_username %}
+  <li>
+    <a href="https://www.keybase.io/{{ site.keybase_username }}" target="_blank"><span class="icon">{% include icon-keybase.svg %}</span></a>
+  </li>
+  {% endif %}
+
+  {% if site.paypal_username %}
+  <li>
+    <a href="https://www.paypal.me/{{ site.paypal_username }}/10" target="_blank"><i class="icon fa fa-paypal"></i></a>
+  </li>
+  {% endif %}
+
+  {% for file in site.static_files %}
+    {% if file.ext == 'asc' %}
+      <li>
+        <a href="{{ file.path | relative_url }}" download><i class="icon fa fa-key"></i></a>
+      </li>
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% for page in site.pages %}
+    {% if page.layout == 'blog' %}
+      <li>
+        <a href="{{ "/feed.xml" | relative_url }}"><i class="icon fa fa-rss"></i></a>
+      </li>
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+</ul>
