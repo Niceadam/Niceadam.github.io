@@ -1,0 +1,24 @@
+baseURL: https://niceadam.github.io/
+languageCode: en-us
+title: Niceadam
+theme: hugo-theme-terminal
+
+enableRobotsTXT: true
+enableEmoji: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  contentTypeName: "posts"
+  showMenuItems: 2
+  themeColor: "red"
+  centerTheme: true
+
+languages:
+  en:
+    params:
+      logo:
+        logoText: "Niceadam"
+        logoHomeLink: "/"
